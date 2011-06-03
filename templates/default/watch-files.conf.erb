@@ -8,7 +8,7 @@ $ModLoad imfile
 # File 1
 $InputFileName <%= wf[:filename] %>
 $InputFileTag <%= wf[:tag] %>
-$InputFileStateFile state_file_<%= idx %>
+$InputFileStateFile state_file_<%= wf[:sha] || idx %>
 #$InputFileSeverity error
 #$InputFileFacility local7
 $InputRunFileMonitor
