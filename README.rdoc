@@ -6,6 +6,13 @@ Cookbook to connect syslogging to papertrailapp.com.
 
  * rsyslog cookbook
 
+= INSTALLATION
+
+The easiest way to install this is to use {knife-github-cookbooks}[https://github.com/websterclay/knife-github-cookbooks]:
+
+    gem install knife-github-cookbooks
+    knife github cookbook install librato/papertrail-cookbook
+
 = ATTRIBUTES:
 
 node[:papertrail][:logger] - Logger to use. Support loggers include: rsyslog. Defaults to rsyslog.
