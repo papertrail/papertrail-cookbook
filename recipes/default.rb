@@ -22,7 +22,13 @@ return unless node[:papertrail][:logger] == "rsyslog"
 syslogger = "rsyslog"
 
 include_recipe "rsyslog"
-package "rsyslog-gnutls"
+
+package "rsyslog-gnutls" do
+  action :install
+
+  # Allow installation of rsyslog-gnutls from source
+  not_if {File.exists?("/usr/lib/rsyslog/lmnsd_gtls.so")}
+end
 
 remote_file node[:papertrail][:cert_file] do
   source node[:papertrail][:cert_url]
