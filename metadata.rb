@@ -11,3 +11,5 @@ depends          "rsyslog"
 %w{ubuntu}.each do |os|
   supports os
 end
+
+recipe           "papertrail", "Installs/Configures logging to papertrailapp.com"
