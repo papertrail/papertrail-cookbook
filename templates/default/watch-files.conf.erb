@@ -5,7 +5,9 @@ $ModLoad imfile
 
 <%- @watch_files.each_with_index do |wf, idx| %>
 
-# File 1
+# <%= wf[:tag] %>
+# <%= wf[:filename] %>
+#
 $InputFileName <%= wf[:filename] %>
 $InputFileTag <%= wf[:tag] %>
 $InputFileStateFile state_file_<%= wf[:sha] || idx %>
