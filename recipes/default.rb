@@ -53,7 +53,7 @@ if node['papertrail']['watch_files'] && node['papertrail']['watch_files'].length
     end
 
     # Sort to preserve order of the config
-    watch_file_array = watch_file_array.sort { |a,b| a['filename'] <=> b['filename'] }
+    watch_file_array = watch_file_array.sort { |a,b| a[:filename] <=> b[:filename] }
 
   elsif node['papertrail']['watch_files'].is_a?(Array)
 
