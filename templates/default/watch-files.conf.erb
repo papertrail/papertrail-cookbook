@@ -10,10 +10,7 @@ $ModLoad imfile
 #
 $InputFileName <%= wf[:filename] %>
 $InputFileTag <%= wf[:tag] %>
-$InputFileStateFile state_file_<%= wf[:sha] || idx %>
-#$InputFileSeverity error
-$InputFileFacility local7
+$InputFileStateFile papertrail_log_<%= wf[:sha] || idx %>
 $InputRunFileMonitor
-$InputFilePollInterval 10
 
 <%- end %>
