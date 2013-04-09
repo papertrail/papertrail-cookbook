@@ -78,7 +78,7 @@ hostname_name = node['papertrail']['hostname_name'].to_s
 hostname_cmd  = node['papertrail']['hostname_cmd'].to_s
 
 unless hostname_name.empty? && hostname_cmd.empty?
-  node['papertrail']['fixhostname'] = true
+  node.set['papertrail']['fixhostname'] = true
 
   if !hostname_name.empty?
     name = hostname_name
