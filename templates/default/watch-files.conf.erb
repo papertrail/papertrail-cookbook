@@ -10,7 +10,7 @@ $ModLoad imfile
 #
 $InputFileName <%= wf[:filename] %>
 $InputFileTag <%= wf[:tag] %>
-$InputFileStateFile state_file_<%= File.basename(wf[:filename], '.*') %>
+$InputFileStateFile state_file_<%= [File.basename(wf[:filename], '.*'), wf[:tag]].join('_') %>
 #$InputFileSeverity error
 $InputFileFacility local7
 $InputRunFileMonitor
