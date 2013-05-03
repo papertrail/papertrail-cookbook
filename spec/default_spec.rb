@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe 'papertrail-cookbook::default' do
+  it 'require rsyslog' do
+    expect(runner.converge('papertrail-cookbook::default')).to include_recipe 'rsyslog'
+  end
+
   it 'uses the basename of the filename as the suffix for state file name' do
     chef_run = runner('test', {
       papertrail: {
