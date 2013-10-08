@@ -1,4 +1,3 @@
-
 ## DESCRIPTION:
 
 Cookbook to connect syslogging to [papertrailapp.com](https://papertrailapp.com/).
@@ -12,7 +11,7 @@ Cookbook to connect syslogging to [papertrailapp.com](https://papertrailapp.com/
 The easiest way to install this is to use [knife-github-cookbooks](https://github.com/websterclay/knife-github-cookbooks):
 
     gem install knife-github-cookbooks
-    knife github cookbook install librato/papertrail-cookbook
+    knife cookbook github install librato/papertrail-cookbook
 
 ## ATTRIBUTES:
 
