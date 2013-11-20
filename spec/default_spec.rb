@@ -18,4 +18,11 @@ describe 'papertrail-cookbook::default' do
     expect(chef_run).to create_file_with_content '/etc/rsyslog.d/60-watch-files.conf', '$InputFileTag test_file'
     expect(chef_run).to create_file_with_content '/etc/rsyslog.d/60-watch-files.conf', '$InputFileStateFile state_file_name_test_file'
   end
+
+  it 'uses attributes to generate configuration' do
+    chef_run = runner.converge('papertrail-cookbook::default')
+    expect(chef_run).to create_file_with_content '/etc/rsyslog.d/65-papertrail.conf', '$ActionResumeRetryCount -1'
+    expect(chef_run).to create_file_with_content '/etc/rsyslog.d/65-papertrail.conf', '$ActionQueueMaxDiskSpace 100M'
+    expect(chef_run).to create_file_with_content '/etc/rsyslog.d/65-papertrail.conf', '$ActionQueueFileName /var/log/rsyslog_queue_main'
+  end
 end

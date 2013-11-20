@@ -28,6 +28,15 @@ default['papertrail']['hostname_name'] = ""
 # dynamic source like EC2 meta-data.
 default['papertrail']['hostname_cmd'] = ""
 
+# The number of times to retry the sending of failed messages (defaults to unlimited)
+default['papertrail']['resume_retry_count'] = -1
+
+# The maximum disk space allowed for queues (default to 100M)
+default['papertrail']['queue_disk_space'] = '100M'
+
+# The name of the disk queue
+default['papertrail']['queue_file_name'] = '/var/log/rsyslog_queue_main'
+
 # File monitoring is not really a part of papertrail but is included here:
 #
 # default['papertrail']['watch_files'] - This is a list of files that will be

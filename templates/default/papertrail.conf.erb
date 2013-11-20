@@ -5,6 +5,19 @@ $DefaultNetstreamDriverCAFile <%= @cert_file %> # trust these CAs
 $DefaultNetstreamDriver gtls # use gtls netstream driver
 $ActionSendStreamDriverMode 1 # require TLS
 $ActionSendStreamDriverAuthMode x509/name # authenticate by hostname
+$ActionResumeRetryCount <%= node['papertrail']['resume_retry_count'] %>
+$ActionResumeInterval 10
+$ActionQueueType LinkedList
+$ActionQueueMaxDiskSpace <%= node['papertrail']['queue_disk_space'] %>
+$ActionQueueFileName <%= node['papertrail']['queue_file_name'] %>
+$ActionQueueSaveOnShutdown on
+$ActionQueueSize 100000
+$ActionQueueDiscardMark 97500
+$ActionQueueHighWaterMark 80000
+$ActionQueueCheckpointInterval 100
+$ActionQueueSaveOnShutdown on
+$ActionQueueTimeoutEnqueue 10
+$ActionQueueDiscardSeverity 0
 
 <%- if @fixhostname %>
 
