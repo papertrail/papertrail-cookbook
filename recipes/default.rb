@@ -44,7 +44,7 @@ if node['papertrail']['watch_files'] && node['papertrail']['watch_files'].length
 
     require 'digest/sha1'
 
-    node['papertrail']['watch_files'].each do |filename, tag|
+    DirHelper.expand(node['papertrail']['watch_files']).each do |filename, tag|
       watch_file_array << {
         :filename => filename,
         :tag      => tag
