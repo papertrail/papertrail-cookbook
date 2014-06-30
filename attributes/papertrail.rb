@@ -10,10 +10,10 @@ default['papertrail']['remote_host'] = "logs.papertrailapp.com"
 default['papertrail']['remote_port'] = nil
 
 # Where to store papertrail cert file.
-default['papertrail']['cert_file'] = "/etc/papertrail.crt"
+default['papertrail']['cert_file'] = "/etc/papertrail-bundle.pem"
 
 # URL to download certificate from.
-default['papertrail']['cert_url'] = "https://papertrailapp.com/tools/syslog.papertrail.crt"
+default['papertrail']['cert_url'] = "https://papertrailapp.com/tools/papertrail-bundle.pem"
 
 # By default, this recipe will log to Papertrail using the system's
 # hostname. If you want to set the hostname that will be used (think
