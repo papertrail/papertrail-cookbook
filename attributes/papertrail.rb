@@ -15,6 +15,11 @@ default['papertrail']['cert_file'] = "/etc/papertrail-bundle.pem"
 # URL to download certificate from.
 default['papertrail']['cert_url'] = "https://papertrailapp.com/tools/papertrail-bundle.pem"
 
+# What CN should we accept from remote host?
+# Note. Wildcard here is a hack to support logs2.papertrailapp.com's wildcard certificate
+# Rsyslog doesn't support Wildcard certificates, but a wildcard matches '*.papertrailapp.com'
+default['papertrail']['permitted_peer'] = "*.papertrailapp.com"
+
 # By default, this recipe will log to Papertrail using the system's
 # hostname. If you want to set the hostname that will be used (think
 # ephemeral cloud nodes) you can set one of the following. If either is
