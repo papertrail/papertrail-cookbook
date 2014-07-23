@@ -11,7 +11,7 @@ $ActionQueueType LinkedList
 $ActionQueueMaxDiskSpace <%= node['papertrail']['queue_disk_space'] %>
 $ActionQueueFileName <%= node['papertrail']['queue_file_name'] %>
 $ActionQueueSaveOnShutdown on
-$ActionQueueSize 100000
+$ActionQueueSize <%= node['papertrail']['queue_size'] %>
 $ActionQueueDiscardMark 97500
 $ActionQueueHighWaterMark 80000
 $ActionQueueCheckpointInterval 100
