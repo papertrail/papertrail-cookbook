@@ -34,6 +34,9 @@ default['papertrail']['resume_retry_count'] = -1
 # The maximum disk space allowed for queues (default to 100M)
 default['papertrail']['queue_disk_space'] = '100M'
 
+# The maximum number of events to queue (default to 100000)
+default['papertrail']['queue_size'] = 100000
+
 # The name of the disk queue
 default['papertrail']['queue_file_name'] = '/var/log/rsyslog_queue_main'
 
