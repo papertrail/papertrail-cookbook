@@ -5,6 +5,7 @@ $DefaultNetstreamDriverCAFile <%= @cert_file %> # trust these CAs
 $DefaultNetstreamDriver gtls # use gtls netstream driver
 $ActionSendStreamDriverMode 1 # require TLS
 $ActionSendStreamDriverAuthMode x509/name # authenticate by hostname
+$ActionSendStreamDriverPermittedPeer <%= node['papertrail']['permitted_peer'] %>
 $ActionResumeRetryCount <%= node['papertrail']['resume_retry_count'] %>
 $ActionResumeInterval 10
 $ActionQueueType LinkedList
