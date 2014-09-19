@@ -42,8 +42,8 @@ default['papertrail']['queue_disk_space'] = '100M'
 # The maximum number of events to queue (default to 100000)
 default['papertrail']['queue_size'] = 100000
 
-# The name of the disk queue
-default['papertrail']['queue_file_name'] = '/var/log/rsyslog_queue_main'
+# The name of the disk queue (relative file name)
+default['papertrail']['queue_file_name'] = 'papertrailqueue'
 
 # File monitoring is not really a part of papertrail but is included here:
 #

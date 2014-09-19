@@ -32,7 +32,7 @@ node['papertrail']['queue_disk_space'] - Maximum disk space for queues. Defaults
 
 node['papertrail']['queue_size'] - Maximum events to queue. Defaults to 100000.
 
-node['papertrail']['queue_file_name'] - Name of the disk queue. Defaults to '/var/log/rsyslog_queue_main'.
+node['papertrail']['queue_file_name'] - Name of the disk queue. Defaults to 'papertrailqueue'.
 ```
 
 By default, this recipe will log to Papertrail using the system's
