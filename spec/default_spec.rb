@@ -6,14 +6,6 @@ describe 'papertrail-cookbook::default' do
   end
 
   describe 'plain filename' do
-    around do |example|
-      File.open("spec/testlogs/spec.log", "w")
-
-      example.run
-
-      File.delete("spec/testlogs/spec.log")
-    end
-
     it 'uses the basename of the filename as the suffix for state file name' do
       chef_run = runner('test', {
         papertrail: {
@@ -30,15 +22,6 @@ describe 'papertrail-cookbook::default' do
   end
 
   describe 'protocols' do
-
-    around do |example|
-      File.open("spec/testlogs/spec.log", "w")
-
-      example.run
-
-      File.delete("spec/testlogs/spec.log")
-    end
-
     describe 'with default' do
       subject {
         runner('test', {
