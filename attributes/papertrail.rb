@@ -13,10 +13,15 @@ default['papertrail']['remote_port'] = nil
 default['papertrail']['protocol'] = 'tcp'
 
 # Where to store papertrail cert file.
-default['papertrail']['cert_file'] = "/etc/papertrail.crt"
+default['papertrail']['cert_file'] = "/etc/papertrail-bundle.pem"
 
 # URL to download certificate from.
-default['papertrail']['cert_url'] = "https://papertrailapp.com/tools/syslog.papertrail.crt"
+default['papertrail']['cert_url'] = "https://papertrailapp.com/tools/papertrail-bundle.pem"
+
+# What CN should we accept from remote host?
+# Note. Wildcard here is a hack to support logs2.papertrailapp.com's wildcard certificate
+# Rsyslog doesn't support Wildcard certificates, but a wildcard matches '*.papertrailapp.com'
+default['papertrail']['permitted_peer'] = "*.papertrailapp.com"
 
 # By default, this recipe will log to Papertrail using the system's
 # hostname. If you want to set the hostname that will be used (think
@@ -37,8 +42,11 @@ default['papertrail']['resume_retry_count'] = -1
 # The maximum disk space allowed for queues (default to 100M)
 default['papertrail']['queue_disk_space'] = '100M'
 
-# The name of the disk queue
-default['papertrail']['queue_file_name'] = '/var/log/rsyslog_queue_main'
+# The maximum number of events to queue (default to 100000)
+default['papertrail']['queue_size'] = 100000
+
+# The name of the disk queue (relative file name)
+default['papertrail']['queue_file_name'] = 'papertrailqueue'
 
 # File monitoring is not really a part of papertrail but is included here:
 #
@@ -56,3 +64,4 @@ default['papertrail']['queue_file_name'] = '/var/log/rsyslog_queue_main'
 #   node['papertrail']['watch_files'] =
 #              [{:filename => "/var/log/myapp.log", :tag => "myapp:"}]
 #
+default['papertrail']['watch_files'] = {}
