@@ -55,7 +55,8 @@ to use syslog. Example:
 
     {
       '/var/log/chef/client.log'    => 'chef',
-      '/var/log/something_else.log' => 'tag'
+      '/var/log/something_else.log' => 'tag',
+      '/var/log/nginx/*.log'        => 'nginx'
     }
 
 ## USAGE:
