@@ -9,9 +9,6 @@ default['papertrail']['remote_host'] = "logs.papertrailapp.com"
 # XXX: should pull from a databag since this is private
 default['papertrail']['remote_port'] = nil
 
-# Wether to use UDP or TCP, defaults to TCP
-default['papertrail']['protocol'] = 'tcp'
-
 # Where to store papertrail cert file.
 default['papertrail']['cert_file'] = "/etc/papertrail-bundle.pem"
 

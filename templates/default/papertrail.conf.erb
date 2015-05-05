@@ -20,9 +20,12 @@ $ActionQueueSaveOnShutdown on
 $ActionQueueTimeoutEnqueue 10
 $ActionQueueDiscardSeverity 0
 
-<%   case node['papertrail']['protocol'] -%>
-<%   when "tcp" -%>
-*.*   @@<%= @host %>:<%= @port %><%= @fixhostname ? ';' + @fixhostname : nil %>
-<%   when "udp" -%>
-*.*   @<%= @host %>:<%= @port %><%= @fixhostname ? ';' + @fixhostname : nil %>
-<%   end -%>
+<%- if @fixhostname %>
+
+*.*   @@<%= @host %>:<%= @port %>;FixHostname
+
+<%- else %>
+
+*.*   @@<%= @host %>:<%= @port %>
+
+<%- end %>

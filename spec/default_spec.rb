@@ -21,44 +21,6 @@ describe 'papertrail-cookbook::default' do
     end
   end
 
-  describe 'protocols' do
-    describe 'with default' do
-      subject {
-        runner('test', {
-          papertrail: {
-            remote_port: 4711,
-            watch_files: {
-              'spec/testlogs/spec.log' => 'test_file'
-            }
-          }
-        }).converge('papertrail-cookbook::default')
-      }
-
-      it 'uses TCP' do
-        expect(subject).to create_file_with_content '/etc/rsyslog.d/65-papertrail.conf', '*.*   @@logs.papertrailapp.com:4711'
-      end
-    end
-
-    describe 'when explicitly set' do
-      subject {
-        runner('test', {
-          papertrail: {
-            remote_port: 4711,
-            protocol: 'udp',
-            watch_files: {
-              'spec/testlogs/spec.log' => 'test_file'
-            }
-          }
-        }).converge('papertrail-cookbook::default')
-      }
-
-      it 'it uses UDP' do
-        expect(subject).to create_file_with_content '/etc/rsyslog.d/65-papertrail.conf', '*.*   @logs.papertrailapp.com:4711'
-      end
-    end
-
-  end
-
   describe 'wildcard filenames' do
     around do |example|
       File.open("spec/testlogs/a.log", "w")
