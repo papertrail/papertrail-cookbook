@@ -38,7 +38,7 @@ describe 'papertrail::default' do
 
   describe 'with watchfiles added' do
     before do
-      node.set['papertrail']['watch_files'] = {'test/file/name.jpg' => 'test_file'}
+      node.set['papertrail']['watch_files'] = { 'test/file/name.jpg' => 'test_file' }
     end
 
     it 'uses the basename of the filename as the suffix for state file name' do
