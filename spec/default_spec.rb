@@ -53,6 +53,7 @@ describe 'papertrail::default' do
 
   describe 'with hostname set' do
     before do
+      # no good idea how to mock something to test hostname_cmd.. :/
       node.set['papertrail']['hostname_name'] = 'some.host.tld'
     end
 
