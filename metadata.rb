@@ -5,8 +5,6 @@ description      "Installs/Configures Sys Logging to papertrailapp.com"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.0.7"
 name             "papertrail"
-issues_url       "https://github.com/librato/papertrail-cookbook/issues"
-source_url       "https://github.com/librato/papertrail-cookbook"
 
 depends          "rsyslog"
 
