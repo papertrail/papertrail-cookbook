@@ -59,7 +59,7 @@ describe 'papertrail::default' do
 
     it 'creates the fix host template' do
       expect(chef_run).to render_file(fixhost_configfile)
-        .with_content('FixHostname,"%timegenerated% some.host.tld %syslogtag%')
+        .with_content('FixHostname,"<%pri%>%timestamp% some.host.tld %syslogtag%')
     end
 
     it 'sets the fix host template in papertrail conf' do
