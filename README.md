@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/librato/papertrail-cookbook.svg?branch=master)](https://travis-ci.org/librato/papertrail-cookbook)
+
 ## DESCRIPTION:
 
 Cookbook to connect syslogging to [papertrailapp.com](https://papertrailapp.com/).
