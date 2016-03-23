@@ -13,4 +13,4 @@ depends          "rsyslog"
   supports os
 end
 
-recipe           "papertrail", "Installs/Configures logging to papertrailapp.com"
+recipe "papertrail", "Installs/Configures logging to papertrailapp.com"

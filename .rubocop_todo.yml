@@ -12,21 +12,6 @@ Style/BracesAroundHashParameters:
   Exclude:
     - 'recipes/default.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: SingleLineConditionsOnly.
-Style/ConditionalAssignment:
-  Exclude:
-    - 'recipes/default.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment, ForceEqualSignAlignment.
-Style/ExtraSpacing:
-  Exclude:
-    - 'metadata.rb'
-    - 'recipes/default.rb'
-
 # Offense count: 11
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles, UseHashRocketsWithSymbolValues.
