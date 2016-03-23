@@ -14,14 +14,6 @@ Style/BracesAroundHashParameters:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, AllowInnerBackticks.
-# SupportedStyles: backticks, percent_x, mixed
-Style/CommandLiteral:
-  Exclude:
-    - 'recipes/default.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: SingleLineConditionsOnly.
 Style/ConditionalAssignment:
   Exclude:
