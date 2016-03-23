@@ -47,7 +47,7 @@ if node['papertrail']['watch_files'] && node['papertrail']['watch_files'].length
     node['papertrail']['watch_files'].each do |filename, tag|
       watch_file_array << {
         :filename => filename,
-        :tag      => tag
+        :tag => tag
       }
     end
 
