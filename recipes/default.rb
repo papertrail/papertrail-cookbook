@@ -27,7 +27,7 @@ package "rsyslog-gnutls" do
   action :install
 
   # Allow installation of rsyslog-gnutls from source
-  not_if {File.exists?("/usr/lib/rsyslog/lmnsd_gtls.so")}
+  not_if {File.exist?("/usr/lib/rsyslog/lmnsd_gtls.so")}
 end
 
 remote_file node['papertrail']['cert_file'] do
