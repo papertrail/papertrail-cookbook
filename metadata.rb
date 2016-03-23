@@ -9,7 +9,7 @@ name             "papertrail"
 depends          "rsyslog"
 
 # TODO: test on fedora
-%w{ubuntu}.each do |os|
+%w(ubuntu).each do |os|
   supports os
 end
 
