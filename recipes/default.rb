@@ -37,7 +37,7 @@ end
 
 syslogdir = "/etc/rsyslog.d"
 
-if node['papertrail']['watch_files'] && node['papertrail']['watch_files'].length > 0
+if node['papertrail']['watch_files'] && !node['papertrail']['watch_files'].empty?
   watch_file_array = []
 
   if node['papertrail']['watch_files'].respond_to?(:keys)
