@@ -92,7 +92,7 @@ unless hostname_name.empty? && hostname_cmd.empty?
     owner "root"
     group "root"
     mode "0644"
-    variables({:name => name})
+    variables(:name => name)
     notifies :restart, "service[#{syslogger}]"
   end
 end
@@ -102,10 +102,9 @@ template "#{syslogdir}/65-papertrail.conf" do
   owner "root"
   group "root"
   mode "0644"
-  variables({ :cert_file => node['papertrail']['cert_file'],
-              :host => node['papertrail']['remote_host'],
-              :port => node['papertrail']['remote_port'],
-              :fixhostname => node['papertrail']['fixhostname']
-            })
+  variables(:cert_file => node['papertrail']['cert_file'],
+            :host => node['papertrail']['remote_host'],
+            :port => node['papertrail']['remote_port'],
+            :fixhostname => node['papertrail']['fixhostname'])
   notifies :restart, "service[#{syslogger}]"
 end
