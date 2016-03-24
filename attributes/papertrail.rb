@@ -40,7 +40,7 @@ default['papertrail']['resume_retry_count'] = -1
 default['papertrail']['queue_disk_space'] = '100M'
 
 # The maximum number of events to queue (default to 100000)
-default['papertrail']['queue_size'] = 100000
+default['papertrail']['queue_size'] = 100_000
 
 # The name of the disk queue (relative file name)
 default['papertrail']['queue_file_name'] = 'papertrailqueue'

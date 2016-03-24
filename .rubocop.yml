@@ -1,1 +1,8 @@
-inherit_from: .rubocop_todo.yml
+Metrics/LineLength:
+  Max: 140
+
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+
+Style/StringLiterals:
+  Enabled: false

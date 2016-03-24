@@ -27,7 +27,7 @@ package "rsyslog-gnutls" do
   action :install
 
   # Allow installation of rsyslog-gnutls from source
-  not_if {File.exists?("/usr/lib/rsyslog/lmnsd_gtls.so")}
+  not_if { File.exist?("/usr/lib/rsyslog/lmnsd_gtls.so") }
 end
 
 remote_file node['papertrail']['cert_file'] do
@@ -37,7 +37,7 @@ end
 
 syslogdir = "/etc/rsyslog.d"
 
-if node['papertrail']['watch_files'] && node['papertrail']['watch_files'].length > 0
+if node['papertrail']['watch_files'] && !node['papertrail']['watch_files'].empty?
   watch_file_array = []
 
   if node['papertrail']['watch_files'].respond_to?(:keys)
@@ -47,12 +47,12 @@ if node['papertrail']['watch_files'] && node['papertrail']['watch_files'].length
     node['papertrail']['watch_files'].each do |filename, tag|
       watch_file_array << {
         :filename => filename,
-        :tag      => tag
+        :tag => tag
       }
     end
 
     # Sort to preserve order of the config
-    watch_file_array = watch_file_array.sort { |a,b| a[:filename] <=> b[:filename] }
+    watch_file_array = watch_file_array.sort { |a, b| a[:filename] <=> b[:filename] }
 
   elsif node['papertrail']['watch_files'].is_a?(Array)
 
@@ -92,7 +92,7 @@ unless hostname_name.empty? && hostname_cmd.empty?
     owner "root"
     group "root"
     mode "0644"
-    variables({:name => name})
+    variables(:name => name)
     notifies :restart, "service[#{syslogger}]"
   end
 end
@@ -102,10 +102,9 @@ template "#{syslogdir}/65-papertrail.conf" do
   owner "root"
   group "root"
   mode "0644"
-  variables({ :cert_file => node['papertrail']['cert_file'],
-              :host => node['papertrail']['remote_host'],
-              :port => node['papertrail']['remote_port'],
-              :fixhostname => node['papertrail']['fixhostname']
-            })
+  variables(:cert_file => node['papertrail']['cert_file'],
+            :host => node['papertrail']['remote_host'],
+            :port => node['papertrail']['remote_port'],
+            :fixhostname => node['papertrail']['fixhostname'])
   notifies :restart, "service[#{syslogger}]"
 end
